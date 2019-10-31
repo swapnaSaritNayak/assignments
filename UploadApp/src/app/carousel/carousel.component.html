@@ -1,0 +1,17 @@
+<div class='container-fluid'>
+    <div class="row" style="padding: 20px;">
+        <div class="col-sm-12 btn btn-success">
+            Bootstrap carousel
+        </div>
+    </div>
+    <div class='col-12'>
+        <ngb-carousel>
+            <ng-template *ngFor="let img of allImage; let i = index" ngbSlide>
+                <img [src]="transform(img)" alt="random Image">
+                <span>
+                    <button (click)="removeImage(i)">Remove Image</button>
+                </span>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <!-- Progress Bar -->
+  <div class="progress form-group" *ngIf="fileUploadService.percentDone">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+      [style.width.%]="fileUploadService.percentDone">
+    </div>
+  </div>
+
+  <!-- Image Preview -->
+  <!-- <div class="form-group">
+    <div class="preview" *ngIf="preview && preview !== null">
+      <img [src]="preview" alt="alternate text">
+    </div>
+  </div> -->
+
+ <!-- Directory Input -->
+  <div class="form-group">
+      <label>for Directory</label>
+    <input type="file" webkitdirectory mozdirectory accept="image/*" (change)="uploadDirectory($event)"/>
+  </div>
+
+
+  <!-- File Input -->
+  <div class="form-group">
+    <label>for File</label>
+    <input type="file" (change)="uploadFile($event)">
+  </div>
+
+  <!-- Submit -->
+  <div class="form-group">
+    <button class="btn btn-danger btn-block btn-lg">Upload Image</button>
+  </div>
+</form>
+
+
+
+<!--carousel-->
+
+<div class="container">
+
+  <!-- No data message -->
+  <div class="alert alert-success text-center" role="alert" *ngIf="Images.length <= 0">
+    No Images added yet!
+  </div>
+
+
+
+  <!-- 
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let img of Images; let i = index">
+
+        <img class="d-block w-100" [src]="transform(img)" alt="First slide">
+
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div> -->
+
+
+  <app-carousel [allImage]="Images"></app-carousel>
+
+
+
+</div>
